@@ -6,7 +6,6 @@ export default async function Home() {
         const res = await fetch(process.env.NEXT_PUBLIC_API_URL+ '/all-messages')
         if (!res.ok) throw new Error('Network request failed')
         messages = await res.json()
-        return messages
     }catch(err){
         console.log(err)
     }
