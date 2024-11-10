@@ -1,8 +1,15 @@
 import dayjs from 'dayjs'
 import ClearMessages from "@/app/components/ClearMessages";
 export default async function Home() {
-    const res = await fetch(process.env.NEXT_PUBLIC_API_URL+ '/all-messages')
-    const messages = await res.json()
+    let messages = []
+    try{
+        const res = await fetch(process.env.NEXT_PUBLIC_API_URL+ '/all-messages')
+        if (!res.ok) throw new Error('Network request failed')
+        messages = await res.json()
+        return messages
+    }catch(err){
+        console.log(err)
+    }
 
   return (
     <main className="w-8/12 mx-auto pt-5">

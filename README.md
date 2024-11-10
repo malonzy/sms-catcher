@@ -14,6 +14,8 @@ pnpm dev
 bun dev
 ```
 
+
+
 This application is designed to simulate receiving SMS without needing to make requests to your live SMS server and counting against your quota.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see SMS caught if any.
