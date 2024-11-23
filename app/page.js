@@ -13,8 +13,8 @@ export default async function Home() {
   return (
     <main className="w-8/12 mx-auto pt-5">
         <ClearMessages qty={messages.length}/>
-        {messages.length > 0 && messages.map((message) => (
-            <div className="bg-neutral-background/10 flex gap-10 my-5 rounded-xl p-5">
+        {messages.length > 0 && messages.map((message,index) => (
+            <div key={index} className="bg-neutral-background/10 flex gap-10 my-5 rounded-xl p-5">
                 <div>
                     <p className="text-sm text-primary-base">Sent to</p>
                     <p className="text-neutral-background">{message.receivingNumber}</p>
@@ -35,7 +35,7 @@ export default async function Home() {
         ))}
         {messages.length === 0 &&
             <div className="text-center py-20 bg-white/10 border border-white/15 w-8/12 rounded-xl my-10 mx-auto">
-                Nothing to show yet
+                No messages to show yet
             </div>
         }
     </main>

@@ -18,6 +18,13 @@ export async function GET(req){
     const from = searchParams.get('from')
     const message = searchParams.get('sms')
 
+    if (!to || !from || !message) {
+        return Response.json({
+            code:'failed',
+            message:'Query params `to`, `from` and `sms` required'
+        })
+    }
+
     const prisma = new PrismaClient()
 
     const createdData = await prisma.message.create({
